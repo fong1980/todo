@@ -88,10 +88,12 @@
         <input id="todo-1" type="checkbox">
         <label for="todo-1">Sweep the floor</label>
       </li>
+
       <li class="todo completed">
         <input id="todo-2" type="checkbox" checked>
         <label for="todo-2">Dust the vases</label>
       </li>
+
     </ul>
     <div class="footer">
       Todo: <span id="todo-count">1</span> •
@@ -102,6 +104,21 @@
 
 
   <script>
+
+  function toggleDone() {
+  var checkbox = this;
+
+  // check the checked status of the checkbox
+  if (checkbox.checked) {
+    // the "completed" class is set on the parent element, the <li>
+    checkbox.parentElement.className = "todo completed";
+  } else {
+    checkbox.parentElement.className = "todo";
+  }
+
+  updateCounters();
+  }
+
   function updateCounters() {
     // Total number of todos
     var totalCount = document.getElementById('total-count');
@@ -119,7 +136,9 @@
     todoCount.innerHTML = uncompletedTodos;
   }
 
-  updateCounters();
+ updateCounters();
+
+
 
 
 
